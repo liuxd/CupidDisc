@@ -5,6 +5,7 @@
       <title>Matrimonial Agency</title>
       <script src="javascripts/jquery.min.js" type="text/javascript"></script>
       <script src="javascripts/jquery.gridly.js" type="text/javascript"></script>
+      <script src="javascripts/html2canvas.js" type="text/javascript"></script>
       <link href="stylesheets/jquery.gridly.css" rel="stylesheet" type="text/css" />
     </meta>
   </head>
@@ -63,11 +64,24 @@
 <div class="brick small"><img src="portrait/Parents/Male/Tsukuyomi.png"></img></div>
 <div class="brick small"><img src="portrait/Parents/Male/Zero.png"></img></div>
 </div>
+
+<button id="export">Export</button>
+
 <script>
   $('.gridly').gridly({
     base: 60, // px
     gutter: 10, // px
     columns: 15
+  });
+
+  $('#export').bind('click', function(e){
+    html2canvas(document.body, {
+        allowTaint: true,
+        taintTest: false,
+        onrendered: function(canvas) {
+            document.body.appendChild(canvas);
+        }
+    });
   });
 </script>
   </body>
