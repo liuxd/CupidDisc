@@ -74,12 +74,11 @@
       });
 
       $('#export').bind('click', function(e){
-        html2canvas(document.getElementById('boys_and_girls'), {
+        html2canvas($('#boys_and_girls'), {
             allowTaint: true,
             taintTest: false,
             onrendered: function(canvas) {
-                // document.body.appendChild(canvas);
-                document.getElementById('result').appendChild(canvas);
+                $('#result').empty().append(canvas);
             }
         });
       });
