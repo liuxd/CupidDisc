@@ -1,5 +1,5 @@
-# Fire Emblem IF - Matrimonial Agency
+# Matrimonial Agency
 
-It can help you to match the boys and girls.
+It can help you to match the boys and girls in Fire Emblem IF.
 
-## [DEMO](http://liuxd.github.io/FireEmblemIF_MatrimonialAgency/demo/index.html)
+## [DEMO](http://liuxd.github.io/MatrimonialAgency/demo/index.html)
