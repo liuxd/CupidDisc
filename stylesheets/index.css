@@ -8,14 +8,10 @@ body {
   clear :both;
 }
 
-#person img {
+.candidate {
   width: 60px;
   height: 60px;
   border-radius:60px;
-}
-
-#person div {
-  float: left;
 }
 
 .pos {

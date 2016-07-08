@@ -11,5 +11,7 @@ $files = glob($folder . '*.png');
 
 foreach ($files as $file) {
 	$filename = basename($file);
-	echo '<div class="brick small"><img src="portrait/' . $portrait_folder . '/' . $filename . '"></img></div>' . PHP_EOL;
+
+	$src = "portrait/{$portrait_folder}/{$filename}";
+	echo '<img class="candidate" id="' . rtrim($filename, '.png') . '" draggable="true" ondragstart="drag(event)" src="' . $src . '"></img>' . PHP_EOL;
 }
