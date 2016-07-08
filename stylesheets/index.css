@@ -3,9 +3,9 @@ body {
 }
 
 #boys_and_girls {
-  width: 100%;
+  width: 80%;
   height: 100%;
-  clear :both;
+  float: left;
 }
 
 .candidate {
