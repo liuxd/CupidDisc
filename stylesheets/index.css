@@ -21,6 +21,10 @@ center {
   height: 100px;
 }
 
+img {
+  border-radius:100px;
+}
+
 .button {
   display: inline-block;
   position: relative;
