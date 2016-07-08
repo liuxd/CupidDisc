@@ -12,6 +12,53 @@
     <div id="boys_and_girls">
     </div>
 
+    <div id="person">
+
+    <!-- Female -->
+    <div class="brick"><img src="portrait/Parents/Female/Aqua.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Belka.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Camilla.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Charlotte.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Elfie.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Elise.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Felicia.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Flora.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Hinoka.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Kagerou.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Kazahana.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Luna.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Mozume.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Nyx.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Oboro.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Orochi.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Pieri.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Rinka.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Sakura.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Female/Setsuna.png"></img></div>
+
+    <!-- Male -->
+    <div class="brick"><img src="portrait/Parents/Male/Asama.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Benoit.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Flannel.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Harold.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Hinata.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Joker.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Kamui.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Lazward.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Leon.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Marx.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Nishiki.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Odin.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Ryouma.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Saizou.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Silas.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Suzukaze.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Takumi.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Tsubaki.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Tsukuyomi.png"></img></div>
+    <div class="brick"><img src="portrait/Parents/Male/Zero.png"></img></div>
+    </div>
+
     <script>
       function sin(degree) {
         return Math.sin(degree * Math.PI / 180);
@@ -26,6 +73,9 @@
       var radius = 300;
       var circle_radius = 30;
       var container = $('#boys_and_girls');
+
+      $('#boys_and_girls').height(height);
+      $('#person').css('top', height);
 
       var x = [
         width / 2,
@@ -84,7 +134,7 @@
         var _left = x[i] - circle_radius;
         var _top = y[i] - circle_radius;
 
-        var div = $('<div id="' + i + '"></div>').addClass('brick').css('left', _left).css('top', _top);
+        var div = $('<div id="' + i + '"></div>').addClass('pos').css('left', _left).css('top', _top);
         div.appendTo(container);
       }
 
