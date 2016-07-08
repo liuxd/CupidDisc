@@ -4,86 +4,90 @@
     <meta charset='UTF-8'>
       <title>Matrimonial Agency</title>
       <script src="javascripts/jquery.min.js" type="text/javascript"></script>
-      <script src="javascripts/jquery.gridly.js" type="text/javascript"></script>
-      <script src="javascripts/html2canvas.js" type="text/javascript"></script>
-      <script src="javascripts/jquery.lazyload.js" type="text/javascript"></script>
-      <link href="stylesheets/jquery.gridly.css" rel="stylesheet" type="text/css" />
       <link href="stylesheets/index.css" rel="stylesheet" type="text/css" />
     </meta>
   </head>
 
   <body>
-    <div class="gridly" id="boys_and_girls">
-
-    <!-- Female -->
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Aqua.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Belka.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Camilla.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Charlotte.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Elfie.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Elise.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Felicia.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Flora.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Hinoka.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Kagerou.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Kazahana.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Luna.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Mozume.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Nyx.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Oboro.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Orochi.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Pieri.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Rinka.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Sakura.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Female/Setsuna.png"></img></div>
-
-    <!-- Male -->
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Asama.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Benoit.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Flannel.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Harold.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Hinata.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Joker.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Kamui.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Lazward.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Leon.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Marx.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Nishiki.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Odin.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Ryouma.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Saizou.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Silas.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Suzukaze.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Takumi.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Tsubaki.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Tsukuyomi.png"></img></div>
-    <div class="brick small"><img class="lazy" data-original="portrait/Parents/Male/Zero.png"></img></div>
-    </div>
-
-    <a href="#" id="export" class="button big green"> Export <span>Get the result</span></a>
-
-    <div id="result">
-      <center><h2><b>Result</b></h2></center>
+    <div id="boys_and_girls">
     </div>
 
     <script>
-      $('.gridly').gridly({
-        base: 70, // px
-        gutter: 10, // px
-        columns: 15
-      });
+      function sin(degree) {
+        return Math.sin(degree * Math.PI / 180);
+      }
 
-      $('#export').bind('click', function(e){
-        html2canvas($('#boys_and_girls'), {
-            allowTaint: true,
-            taintTest: false,
-            onrendered: function(canvas) {
-                $('#result').empty().append(canvas);
-            }
-        });
-      });
+      function cos(degree) {
+        return Math.cos(degree * Math.PI / 180);
+      }
 
-      $("img.lazy").lazyload();
+      var height = $(document).height();
+      var width = $(document).width();
+      var radius = 300;
+      var circle_radius = 30;
+      var container = $('#boys_and_girls');
+
+      var x = [
+        width / 2,
+        width / 2 - radius * sin(18),
+        width / 2 - radius * sin(36),
+        width / 2 - radius * sin(54),
+        width / 2 - radius * sin(72),
+
+        width / 2 - radius,
+        width / 2 - radius * cos(18),
+        width / 2 - radius * cos(36),
+        width / 2 - radius * cos(54),
+        width / 2 - radius * cos(72),
+
+
+        width / 2,
+        width / 2 + radius * sin(18),
+        width / 2 + radius * sin(36),
+        width / 2 + radius * sin(54),
+        width / 2 + radius * sin(72),
+
+        width / 2 + radius,
+        width / 2 + radius * cos(18),
+        width / 2 + radius * cos(36),
+        width / 2 + radius * cos(54),
+        width / 2 + radius * cos(72),
+      ];
+
+      var y = [
+        height / 2 - radius,
+        height / 2 - radius * sin(72),
+        height / 2 - radius * sin(54),
+        height / 2 - radius * sin(36),
+        height / 2 - radius * sin(18),
+
+        height / 2,
+        height / 2 + radius * sin(18),
+        height / 2 + radius * sin(36),
+        height / 2 + radius * sin(54),
+        height / 2 + radius * sin(72),
+
+        height / 2 + radius,
+        height / 2 + radius * cos(18),
+        height / 2 + radius * cos(36),
+        height / 2 + radius * cos(54),
+        height / 2 + radius * cos(72),
+
+        height / 2,
+        height / 2 - radius * sin(18),
+        height / 2 - radius * sin(36),
+        height / 2 - radius * sin(54),
+        height / 2 - radius * sin(72),
+      ]
+
+      for (var i in x) {
+        var _left = x[i] - circle_radius;
+        var _top = y[i] - circle_radius;
+
+        var div = $('<div id="' + i + '"></div>').addClass('brick').css('left', _left).css('top', _top);
+        div.appendTo(container);
+      }
+
     </script>
   </body>
 </html>
