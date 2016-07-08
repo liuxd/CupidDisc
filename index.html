@@ -102,6 +102,7 @@
 
         if (relation[data]) {
           var child_id = parseInt(ev.target.id) + 40;
+          $('#' + child_id).empty();
           var img = '<img class="candidate" src="portrait/Children/' + relation[data] + '.png"></img>';
 
           $(img).appendTo('#' + child_id);
