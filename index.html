@@ -80,7 +80,8 @@
 
       var height = $(document).height();
       var width = $(document).width() - 400;
-      var radius = 280;
+      var radius = 300;
+      var radius_inner = 230;
       var circle_radius = 30;
       var container = $('#boys_and_girls');
 
@@ -100,7 +101,6 @@
         width / 2 - radius * cos(54),
         width / 2 - radius * cos(72),
 
-
         width / 2,
         width / 2 + radius * sin(18),
         width / 2 + radius * sin(36),
@@ -112,6 +112,33 @@
         width / 2 + radius * cos(36),
         width / 2 + radius * cos(54),
         width / 2 + radius * cos(72),
+
+
+
+        width / 2,
+        width / 2 - radius_inner * sin(18),
+        width / 2 - radius_inner * sin(36),
+        width / 2 - radius_inner * sin(54),
+        width / 2 - radius_inner * sin(72),
+
+        width / 2 - radius_inner,
+        width / 2 - radius_inner * cos(18),
+        width / 2 - radius_inner * cos(36),
+        width / 2 - radius_inner * cos(54),
+        width / 2 - radius_inner * cos(72),
+
+
+        width / 2,
+        width / 2 + radius_inner * sin(18),
+        width / 2 + radius_inner * sin(36),
+        width / 2 + radius_inner * sin(54),
+        width / 2 + radius_inner * sin(72),
+
+        width / 2 + radius_inner,
+        width / 2 + radius_inner * cos(18),
+        width / 2 + radius_inner * cos(36),
+        width / 2 + radius_inner * cos(54),
+        width / 2 + radius_inner * cos(72),
       ];
 
       var y = [
@@ -138,6 +165,30 @@
         height / 2 - radius * sin(36),
         height / 2 - radius * sin(54),
         height / 2 - radius * sin(72),
+
+        height / 2 - radius_inner,
+        height / 2 - radius_inner * sin(72),
+        height / 2 - radius_inner * sin(54),
+        height / 2 - radius_inner * sin(36),
+        height / 2 - radius_inner * sin(18),
+
+        height / 2,
+        height / 2 + radius_inner * sin(18),
+        height / 2 + radius_inner * sin(36),
+        height / 2 + radius_inner * sin(54),
+        height / 2 + radius_inner * sin(72),
+
+        height / 2 + radius_inner,
+        height / 2 + radius_inner * cos(18),
+        height / 2 + radius_inner * cos(36),
+        height / 2 + radius_inner * cos(54),
+        height / 2 + radius_inner * cos(72),
+
+        height / 2,
+        height / 2 - radius_inner * sin(18),
+        height / 2 - radius_inner * sin(36),
+        height / 2 - radius_inner * sin(54),
+        height / 2 - radius_inner * sin(72),
       ]
 
       for (var i in x) {
