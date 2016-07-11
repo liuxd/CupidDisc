@@ -94,26 +94,33 @@
       }
 
       function drag(ev) {
-        ev.dataTransfer.setData("Text",ev.target.id);
+        var img_id = ev.target.id;
+        ev.dataTransfer.setData("img_id", img_id);
+        var parent_id = $('#' + img_id).parent().attr('id');
+
+        // clear child when moving.
+        if (!isNaN(parent_id) && relation[img_id]) {
+          var id = parseInt(parent_id) + 40;
+          $('#' + id).empty();
+        }
       }
 
       function drop(ev) {
         ev.preventDefault();
-        var data = ev.dataTransfer.getData("Text");
+        var img_id = ev.dataTransfer.getData("img_id");
 
         if (isNaN($(ev.target).attr('id'))) {
           alert('There is a person yet.');
           return false;
         }
 
-        $(ev.target).append($('#' + data));
+        $(ev.target).append($('#' + img_id));
 
-        if (relation[data]) {
+        if (relation[img_id]) {
           var child_id = parseInt(ev.target.id) + 40;
-          $('#' + child_id).empty();
-          var img = '<img class="candidate" src="portrait/Children/' + relation[data] + '.png"></img>';
+          var img = '<img class="candidate" src="portrait/Children/' + relation[img_id] + '.png"></img>';
 
-          $(img).appendTo('#' + child_id);
+          $('#' + child_id).empty().append(img);
         }
       }
 
