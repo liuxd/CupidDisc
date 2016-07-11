@@ -100,6 +100,12 @@
       function drop(ev) {
         ev.preventDefault();
         var data = ev.dataTransfer.getData("Text");
+
+        if (isNaN($(ev.target).attr('id'))) {
+          alert('There is a person yet.');
+          return false;
+        }
+
         $(ev.target).append($('#' + data));
 
         if (relation[data]) {
