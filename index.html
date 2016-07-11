@@ -100,7 +100,7 @@
       function drop(ev) {
         ev.preventDefault();
         var data = ev.dataTransfer.getData("Text");
-        ev.target.appendChild(document.getElementById(data));
+        $(ev.target).append($('#' + data));
 
         if (relation[data]) {
           var child_id = parseInt(ev.target.id) + 40;
