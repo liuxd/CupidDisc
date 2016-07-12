@@ -109,18 +109,33 @@
         ev.preventDefault();
         var img_id = ev.dataTransfer.getData("img_id");
 
+        // forbid covering.
         if (isNaN($(ev.target).attr('id'))) {
           alert('There is a person yet.');
           return false;
         }
 
-        $(ev.target).append($('#' + img_id));
+        var target_id = ev.target.id;
 
         if (relation[img_id]) {
-          var child_id = parseInt(ev.target.id) + 40;
-          var img = '<img class="candidate" src="portrait/Children/' + relation[img_id] + '.png"></img>';
+          if (target_id < 20) {
+            $(ev.target).append($('#' + img_id));
 
-          $('#' + child_id).empty().append(img);
+            // set child.
+            var child_id = parseInt(ev.target.id) + 40;
+            var img = '<img class="candidate" src="portrait/Children/' + relation[img_id] + '.png"></img>';
+            $('#' + child_id).append(img);
+          } else {
+            alert('You are father.You should be put in outer circle.');
+            return false;
+          }
+        } else {
+          if (target_id >= 20 && target_id < 40) {
+            $(ev.target).append($('#' + img_id));
+          } else {
+            alert('You are mother.You should be put in middle circle.');
+            return false;
+          }
         }
       }
 
@@ -137,6 +152,7 @@
       $('#person').css('top', height);
 
       var x = [
+        // The outer circle
         width / 2,
         width / 2 - radius * sin(18),
         width / 2 - radius * sin(36),
@@ -161,6 +177,7 @@
         width / 2 + radius * cos(54),
         width / 2 + radius * cos(72),
 
+        // The middle circle
         width / 2,
         width / 2 - radius_inner * sin(18),
         width / 2 - radius_inner * sin(36),
@@ -185,6 +202,7 @@
         width / 2 + radius_inner * cos(54),
         width / 2 + radius_inner * cos(72),
 
+        // The inner circle
         width / 2,
         width / 2 - radius_child * sin(18),
         width / 2 - radius_child * sin(36),
@@ -211,6 +229,7 @@
       ];
 
       var y = [
+        // The outer circle
         height / 2 - radius,
         height / 2 - radius * sin(72),
         height / 2 - radius * sin(54),
@@ -235,6 +254,7 @@
         height / 2 - radius * sin(54),
         height / 2 - radius * sin(72),
 
+        // The outer circle
         height / 2 - radius_inner,
         height / 2 - radius_inner * sin(72),
         height / 2 - radius_inner * sin(54),
@@ -259,6 +279,7 @@
         height / 2 - radius_inner * sin(54),
         height / 2 - radius_inner * sin(72),
 
+        // The inner circle
         height / 2 - radius_child,
         height / 2 - radius_child * sin(72),
         height / 2 - radius_child * sin(54),
