@@ -43,6 +43,11 @@ function drag(ev) {
     var id = parseInt(parent_id) + 40;
     $('#' + id).empty();
   }
+
+  // for Aqua
+  if (img_id === 'Aqua') {
+    $('#60').empty();
+  }
 }
 
 function drop(ev) {
@@ -72,6 +77,12 @@ function drop(ev) {
   } else {
     if (target_id >= 20 && target_id < 40) {
       $(ev.target).append($('#' + img_id));
+
+      // for Aqua
+      if (img_id === 'Aqua') {
+        var img = '<img class="candidate" src="portrait/Children/Male/Shigure.png"></img>';
+        $('#60').append(img);
+      }
     } else {
       x0p('Oh, no!', 'You are a girl.You should be put in middle circle.');
       return false;
@@ -166,6 +177,9 @@ function init() {
     width / 2 + radius_child * cos(36),
     width / 2 + radius_child * cos(54),
     width / 2 + radius_child * cos(72),
+
+    // The center
+    width / 2
   ];
 
   var y = [
@@ -243,6 +257,9 @@ function init() {
     height / 2 - radius_child * sin(36),
     height / 2 - radius_child * sin(54),
     height / 2 - radius_child * sin(72),
+
+    // The center
+    height / 2
   ]
 
   for (var i in x) {
