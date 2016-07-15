@@ -51,7 +51,7 @@ function drop(ev) {
 
   // forbid covering.
   if (isNaN($(ev.target).attr('id'))) {
-    alert('There is a person yet.');
+    x0p('Sorry', 'There is a person yet.');
     return false;
   }
 
@@ -66,14 +66,14 @@ function drop(ev) {
       var img = '<img class="candidate" src="portrait/Children/' + relation[img_id] + '.png"></img>';
       $('#' + child_id).append(img);
     } else {
-      alert('You are father.You should be put in outer circle.');
+      x0p('Oh, no!', 'You are a boy.You should be put in outer circle.');
       return false;
     }
   } else {
     if (target_id >= 20 && target_id < 40) {
       $(ev.target).append($('#' + img_id));
     } else {
-      alert('You are mother.You should be put in middle circle.');
+      x0p('Oh, no!', 'You are a girl.You should be put in middle circle.');
       return false;
     }
   }
@@ -257,3 +257,4 @@ function init() {
 }
 
 init();
+
