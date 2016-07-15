@@ -6,6 +6,7 @@ body {
   width: 80%;
   height: 100%;
   float: left;
+  clear: both;
 }
 
 .candidate {
@@ -21,3 +22,24 @@ body {
   border: solid pink 2px;
   position: absolute;
 }
+
+#person {
+  width: 20%;
+  right: 0px;
+  position: absolute;
+}
+
+.room {
+  border: solid pink 2px;
+  padding: 10px;
+  margin: 10px;
+  border-radius:10px;
+}
+
+.room_title {
+  width: 100%;
+  text-align: center;
+  font-family: monaco;
+}
+
+/* end of this file*/
