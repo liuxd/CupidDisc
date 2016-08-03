@@ -35,7 +35,6 @@ body {
 }
 
 .room {
-  border: solid pink 3px;
   padding: 5px;
   margin: 10px;
   border-radius:10px;
@@ -45,9 +44,27 @@ body {
   width: 100%;
   text-align: center;
   font-family: monaco;
-  padding: auto 10px;
+  font-weight: bolder;
+  padding: 5px 0;
   margin-bottom: 5px;
-  border-bottom: solid pink 3px;
+}
+
+.boy {
+  border: solid #0074D9 3px;
+  color : #0074D9;
+}
+
+.boy_title {
+  border-bottom: solid #0074D9 3px;
+}
+
+.girl {
+  border: solid #B10DC9 3px;
+  color : #B10DC9;
+}
+
+.girl_title {
+  border-bottom: solid #B10DC9 3px;
 }
 
 /* end of this file*/
