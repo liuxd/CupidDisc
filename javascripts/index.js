@@ -21,6 +21,29 @@ relation = {
   'Zero' : 'Female/Eponine'
 };
 
+female = [
+  "Aqua",
+  "Belka",
+  "Camilla",
+  "Charlotte",
+  "Elfie",
+  "Elise",
+  "Felicia",
+  "Flora",
+  "Hinoka",
+  "Kagerou",
+  "Kazahana",
+  "Luna",
+  "Mozume",
+  "Nyx",
+  "Oboro",
+  "Orochi",
+  "Pieri",
+  "Rinka",
+  "Sakura",
+  "Setsuna",
+];
+
 function sin(degree) {
   return Math.sin(degree * Math.PI / 180);
 }
@@ -90,7 +113,7 @@ function drop(ev) {
   }
 }
 
-function init() {
+function draw_circles() {
   var height = $(document).height();
   var width = $(document).width() - 400;
   var radius = 300;
@@ -155,6 +178,26 @@ function position_generator (width, height, radius_arr)
   y.push(height / 2);
 
   return [x, y];
+}
+
+function set_people() {
+  var girls = $('#girls');
+  var boys = $('#boys');
+
+  for (var i in female) {
+    var img = '<img class="candidate" id="' + female[i] + '" draggable="true" ondragstart="drag(event)" src="portrait/Parents/Female/' + female[i] + '.png">';
+    girls.append(img);
+  }
+
+  for (var name in relation) {
+    var img = '<img class="candidate" id="' + name + '" draggable="true" ondragstart="drag(event)" src="portrait/Parents/Male/' + name + '.png">';
+    boys.append(img);
+  }
+}
+
+function init() {
+  draw_circles();
+  set_people();
 }
 
 init();
