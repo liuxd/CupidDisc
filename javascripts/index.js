@@ -102,165 +102,8 @@ function init() {
 
   $('#boys_and_girls').height(height);
 
-  var x = [
-    // The outer circle
-    width / 2,
-    width / 2 - radius * sin(18),
-    width / 2 - radius * sin(36),
-    width / 2 - radius * sin(54),
-    width / 2 - radius * sin(72),
-
-    width / 2 - radius,
-    width / 2 - radius * cos(18),
-    width / 2 - radius * cos(36),
-    width / 2 - radius * cos(54),
-    width / 2 - radius * cos(72),
-
-    width / 2,
-    width / 2 + radius * sin(18),
-    width / 2 + radius * sin(36),
-    width / 2 + radius * sin(54),
-    width / 2 + radius * sin(72),
-
-    width / 2 + radius,
-    width / 2 + radius * cos(18),
-    width / 2 + radius * cos(36),
-    width / 2 + radius * cos(54),
-    width / 2 + radius * cos(72),
-
-    // The middle circle
-    width / 2,
-    width / 2 - radius_inner * sin(18),
-    width / 2 - radius_inner * sin(36),
-    width / 2 - radius_inner * sin(54),
-    width / 2 - radius_inner * sin(72),
-
-    width / 2 - radius_inner,
-    width / 2 - radius_inner * cos(18),
-    width / 2 - radius_inner * cos(36),
-    width / 2 - radius_inner * cos(54),
-    width / 2 - radius_inner * cos(72),
-
-    width / 2,
-    width / 2 + radius_inner * sin(18),
-    width / 2 + radius_inner * sin(36),
-    width / 2 + radius_inner * sin(54),
-    width / 2 + radius_inner * sin(72),
-
-    width / 2 + radius_inner,
-    width / 2 + radius_inner * cos(18),
-    width / 2 + radius_inner * cos(36),
-    width / 2 + radius_inner * cos(54),
-    width / 2 + radius_inner * cos(72),
-
-    // The inner circle
-    width / 2,
-    width / 2 - radius_child * sin(18),
-    width / 2 - radius_child * sin(36),
-    width / 2 - radius_child * sin(54),
-    width / 2 - radius_child * sin(72),
-
-    width / 2 - radius_child,
-    width / 2 - radius_child * cos(18),
-    width / 2 - radius_child * cos(36),
-    width / 2 - radius_child * cos(54),
-    width / 2 - radius_child * cos(72),
-
-    width / 2,
-    width / 2 + radius_child * sin(18),
-    width / 2 + radius_child * sin(36),
-    width / 2 + radius_child * sin(54),
-    width / 2 + radius_child * sin(72),
-
-    width / 2 + radius_child,
-    width / 2 + radius_child * cos(18),
-    width / 2 + radius_child * cos(36),
-    width / 2 + radius_child * cos(54),
-    width / 2 + radius_child * cos(72),
-
-    // The center
-    width / 2
-  ];
-
-  var y = [
-    // The outer circle
-    height / 2 - radius,
-    height / 2 - radius * sin(72),
-    height / 2 - radius * sin(54),
-    height / 2 - radius * sin(36),
-    height / 2 - radius * sin(18),
-
-    height / 2,
-    height / 2 + radius * sin(18),
-    height / 2 + radius * sin(36),
-    height / 2 + radius * sin(54),
-    height / 2 + radius * sin(72),
-
-    height / 2 + radius,
-    height / 2 + radius * cos(18),
-    height / 2 + radius * cos(36),
-    height / 2 + radius * cos(54),
-    height / 2 + radius * cos(72),
-
-    height / 2,
-    height / 2 - radius * sin(18),
-    height / 2 - radius * sin(36),
-    height / 2 - radius * sin(54),
-    height / 2 - radius * sin(72),
-
-    // The outer circle
-    height / 2 - radius_inner,
-    height / 2 - radius_inner * sin(72),
-    height / 2 - radius_inner * sin(54),
-    height / 2 - radius_inner * sin(36),
-    height / 2 - radius_inner * sin(18),
-
-    height / 2,
-    height / 2 + radius_inner * sin(18),
-    height / 2 + radius_inner * sin(36),
-    height / 2 + radius_inner * sin(54),
-    height / 2 + radius_inner * sin(72),
-
-    height / 2 + radius_inner,
-    height / 2 + radius_inner * cos(18),
-    height / 2 + radius_inner * cos(36),
-    height / 2 + radius_inner * cos(54),
-    height / 2 + radius_inner * cos(72),
-
-    height / 2,
-    height / 2 - radius_inner * sin(18),
-    height / 2 - radius_inner * sin(36),
-    height / 2 - radius_inner * sin(54),
-    height / 2 - radius_inner * sin(72),
-
-    // The inner circle
-    height / 2 - radius_child,
-    height / 2 - radius_child * sin(72),
-    height / 2 - radius_child * sin(54),
-    height / 2 - radius_child * sin(36),
-    height / 2 - radius_child * sin(18),
-
-    height / 2,
-    height / 2 + radius_child * sin(18),
-    height / 2 + radius_child * sin(36),
-    height / 2 + radius_child * sin(54),
-    height / 2 + radius_child * sin(72),
-
-    height / 2 + radius_child,
-    height / 2 + radius_child * cos(18),
-    height / 2 + radius_child * cos(36),
-    height / 2 + radius_child * cos(54),
-    height / 2 + radius_child * cos(72),
-
-    height / 2,
-    height / 2 - radius_child * sin(18),
-    height / 2 - radius_child * sin(36),
-    height / 2 - radius_child * sin(54),
-    height / 2 - radius_child * sin(72),
-
-    // The center
-    height / 2
-  ]
+  var position = position_generator(width, height, [radius, radius_inner, radius_child]);
+  var x = position[0], y = position[1];
 
   for (var i in x) {
     var _left = x[i] - circle_radius;
@@ -273,5 +116,45 @@ function init() {
   }
 }
 
-init();
+function position_generator (width, height, radius_arr)
+{
+  var x = [], y = [];
 
+  for (var index in radius_arr) {
+    var radius = radius_arr[index];
+    var pointer = 0;
+
+    while (pointer <= 19) {
+      var offset = pointer % 5;
+
+      switch (true) {
+        case pointer < 5:
+          x.push(width / 2 - radius * sin(18 * offset));
+          y.push(height / 2 - radius * cos(18 * offset));
+          break;
+        case pointer < 10 && pointer >= 5:
+          x.push(width / 2 - radius * cos(18 * offset));
+          y.push(height / 2 + radius * sin(18 * offset));
+          break;
+        case pointer < 15 && pointer >= 10:
+          x.push(width / 2 + radius * sin(18 * offset));
+          y.push(height / 2 + radius * cos(18 * offset));
+          break;
+        case pointer < 20 && pointer >= 15:
+          x.push(width / 2 + radius * cos(18 * offset));
+          y.push(height / 2 - radius * sin(18 * offset));
+          break;
+        default: break;
+      }
+
+      pointer++;
+    }
+  }
+
+  x.push(width / 2);
+  y.push(height / 2);
+
+  return [x, y];
+}
+
+init();
