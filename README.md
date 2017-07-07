@@ -1,1 +1,8 @@
-It can help you to match the boys and girls in Fire Emblem IF.
+# Cupid Disc
+
+It can help you to match the boys and girls in [Fire Emblem IF](http://fireemblemfates.nintendo.com/). It is easy to use:
+
+- Drag a boy on the outer circle.
+- Drag a girl on the inner circle.
+
+Let's try [Click me](https://liuxd.github.io/CupidDisc/demo/index.html)!
